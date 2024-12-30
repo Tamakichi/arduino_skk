@@ -225,7 +225,7 @@ int16_t binfind(const char* key, uint8_t cmplen) {
 	uint16_t flg_stop = 0;
 	int16_t pos;
 	int rc;
-  char roma_str[10];
+    char roma_str[10];
 
 	for(;;) {
 		pos = t_p + ((e_p - t_p+1)>>1);
@@ -236,7 +236,7 @@ int16_t binfind(const char* key, uint8_t cmplen) {
 		rc = strncasecmp(key, r_table[pos], cmplen);
 #endif
     if (rc == 0) {        // 等しい
-      flg_stop = 1;  
+        flg_stop = 1;  
 			break;
 		} else if (rc > 0) {  // 大きい
 			t_p = pos + 1;   
@@ -261,22 +261,22 @@ int16_t binfind(const char* key, uint8_t cmplen) {
 //	 見つからない場合： -1
 //
 int16_t get_roma_index(const char* tokens) {
-  int16_t tokens_len = strlen(tokens);
-  int16_t index = -1;
-  int16_t tmp_index = -1;
+    int16_t tokens_len = strlen(tokens);
+    int16_t index = -1;
+    int16_t tmp_index = -1;
 
-  for (uint16_t i=1; i<=4; i++) {
-      if (i > tokens_len)
-          break;
-      tmp_index = binfind(tokens, i);
-      if (tmp_index < 0)
-          break;
-      if ( i != strlen_pgm(r_table[tmp_index]) ) {
+    for (uint16_t i=1; i<=4; i++) {
+        if (i > tokens_len)
+            break;
+        tmp_index = binfind(tokens, i);
+        if (tmp_index < 0)
+            break;
+        if ( i != strlen_pgm(r_table[tmp_index]) ) {
         continue;
-      }
-      index = tmp_index;
-  }
-  return index;
+        }
+        index = tmp_index;
+    }
+    return index;
 }
 
 // 撥音 "ん" に変換すべきかどうかを判定する
@@ -333,7 +333,7 @@ uint16_t JString::roma_to_kana(char* dst, char* src) {
 			// ローマ字変換可能
 			uint16_t rm_len = strlen_pgm(r_table[index]);
 			uint16_t hk_len = strlen_pgm(h_table[index]);
-      strcpy_pgm(dst[dst_pos], h_table[index]);
+            strcpy_pgm(dst[dst_pos], h_table[index]);
 
 			dst_pos += hk_len;
 			src_pos += rm_len;

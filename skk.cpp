@@ -21,9 +21,9 @@ uint32_t SKK::begin(uint8_t sd_cs, const char* param_path) {
 	char path[64] = ""; 
 	uint32_t rc;
 
-  if (!SD.begin(sd_cs)) {
-    return 0;
-  }
+	if (!SD.begin(sd_cs)) {
+	return 0;
+	}
 
 	// ファイルパスの作成
 	if (param_path != NULL) {
